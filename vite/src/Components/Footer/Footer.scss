@@ -1,5 +1,7 @@
 .footer {
-    margin: 100px 200px 20px 200px;
+    outline-style: groove;
+    background-color: black;
+    padding: 15px;
             //top right bottom left
 
     .top{
@@ -7,22 +9,25 @@
         gap: 50px;
 
         .item{
-            flex: 1; // maiking items exactly the same size
+            flex: 1; // making items exactly the same size
             display: flex; //maiking them again vertical
             flex-direction: column;
             gap: 10px;
             text-align: justify; //maiking text look better
             font-size: 14px;
+            text-align: center;
 
 
             h1 {
                 font-size: 18px;
                 font-weight: 500;
-                color: #555;
+                color: whitesmoke;
+                text-decoration: underline
+                
             }
 
             span {
-                color: gray;
+                color: white;
             }
         }
     }
@@ -37,6 +42,7 @@
         .left{
             display: flex;
             align-items: center;
+            margin-left: 40px;
 
             .logo {
                 color: blue;
@@ -54,6 +60,7 @@
             
             img {
                 height: 50px;
+                margin-right: 0px;
             }
         }
     }
