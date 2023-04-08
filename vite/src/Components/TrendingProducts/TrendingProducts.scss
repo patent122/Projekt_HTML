@@ -1,0 +1,27 @@
+.trendingProducts {
+    margin: 100px 200px;
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px; //puts the Cards lower
+
+
+        h1 { 
+            flex: 2; //spreads them
+            text-transform: capitalize; //makes the text look better
+        }
+
+        p {
+            flex: 3; //spreads them
+            color: gray;
+        }
+    }
+
+    .bottom {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+}

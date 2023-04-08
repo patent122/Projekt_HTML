@@ -9,7 +9,7 @@ import Product from './pages/Home/Product/Product';
 import Products from './pages/Home/Products/Products';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
-import './app.scss'
+import './App.scss'
 
 const Layout = () => {
   return (
