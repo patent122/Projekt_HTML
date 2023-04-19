@@ -15,7 +15,7 @@
             font-size: 18px;
             cursor: pointer;
             &:hover {
-                color: blue; /* kolor po najechaniu */
+                color: red; /* kolor po najechaniu */
             }
         }
 
@@ -30,6 +30,7 @@
                 margin-left: 300px;
                 width: 25%; 
                 height: auto;
+                align-items: center;
               }
         }
 
@@ -43,11 +44,34 @@
             display: flex;
             gap: 15px;
             color: #777;
-            cursor: pointer;
 
+            .searchIcon {
+                cursor: pointer;
+                    &:hover {
+                        color: red;
+                        }
+            }
+
+            .personOutlineIcon {
+                cursor: pointer;
+                    &:hover{
+                        color: red;
+                    }
+            }
+
+            .favouriteBorderOutlineIcon {
+                cursor: pointer;
+                    &:hover{
+                        color: red;
+                    }
+            }
 
             .cartIcon {
                 position: relative;  //makes the icon on the cart
+                cursor: pointer;
+                    &:hover{
+                        color: red;
+                    }
 
 
                 span{

@@ -14,20 +14,22 @@ const Contact = () => {
                     <input type="text" placeholder='Enter your e-mail...' />
                     <button>JOIN US</button>
                 </div>
-                <div className="icon1">
-                    <FacebookIcon />
-                </div>
-                <div className="icon2">
-                    <LinkedInIcon />
-                </div>
-                <div className="icon3">
-                    <InstagramIcon />
-                </div>
-                <div className="icon4">
-                    <TwitterIcon />
-                </div>
-                <div className="icon5">
-                    <GoogleIcon />
+                <div className="icons">
+                    <div className="facebookIcon">
+                        <FacebookIcon />
+                    </div>
+                    <div className="linkedInIcon">
+                        <LinkedInIcon />
+                    </div>
+                    <div className="instagramIcon">
+                        <InstagramIcon />
+                    </div>
+                    <div className="twitterIcon">
+                        <TwitterIcon />
+                    </div>
+                    <div className="googleIcon">
+                        <GoogleIcon />
+                    </div>
                 </div>
             </div>
         </div>

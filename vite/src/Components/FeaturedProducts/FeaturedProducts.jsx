@@ -56,7 +56,7 @@ const FeaturedProducts = ({ type }) => {
             <div className="top">
                 <h1>{type} products</h1>
                 <p>
-                    "Best-selling, well-reviewed, brand new products. Check out our most recent offer"
+                    "Best-selling, well-reviewed, brand new products. Check out our most recent offer."
                 </p>
             </div>
             <div className="bottom">

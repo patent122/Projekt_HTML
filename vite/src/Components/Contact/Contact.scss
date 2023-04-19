@@ -1,10 +1,9 @@
 .contact {
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 5px;
+    margin-top: 10px;
     gap: 30px;
     outline-style: groove;
-    background-color: #2879fe;
-    color: white;
+    background-color: black;
     padding: 15px;
     display: flex;
     justify-content: center;
@@ -14,13 +13,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 20px;
+        gap: 10px;
 
         span{
             position: relative;
             left: 50px;
             margin-right: 10px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: white;
         }
 
         input {
@@ -41,49 +41,45 @@
                 }
         }
 
-        .icon1 {
+        .icons {
             display: flex;
             gap: 30px;
-            cursor: pointer;
-                &:hover{
-                    color: red;
-                }
-        }
+            color: white;
 
-        .icon2 {
-            display: flex;
-            gap: 30px;
-            cursor: pointer;
-                &:hover{
-                    color: red;
-                }
+            .facebookIcon {
+                cursor: pointer;
+                    &:hover{
+                        color: red;
+                    }
+            }
+
+            .linkedInIcon {
+                cursor: pointer;
+                    &:hover{
+                        color: red;
+                    }
             }
         
-        .icon3 {
-            display: flex;
-            gap: 30px;
-            cursor: pointer;
-                &:hover{
-                    color: red;
-                }
+            .instagramIcon {
+                cursor: pointer;
+                    &:hover{
+                        color: red;
+                    }
             }
             
-        .icon4 {
-            display: flex;
-            gap: 30px;
-            cursor: pointer;
-                &:hover{
-                    color: red;
-                }
+            .twitterIcon {
+                cursor: pointer;
+                    &:hover{
+                        color: red;
+                    }
             }
             
-         .icon5 {
-            display: flex;
-            gap: 30px;
-            cursor: pointer;
-                 &:hover{
-                    color: red;
-                }
+             .googleIcon {
+                cursor: pointer;
+                    &:hover{
+                        color: red;
+                    }
+            }
         }            
     }
 }

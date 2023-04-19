@@ -1,32 +1,41 @@
 import React from 'react'
 import './Footer.scss'
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <div className='footer'>
       <div className="top">
         <div className="item">
           <h1>Categories</h1>
-          <span>Women</span>
-          <span>Men</span>
-          <span>Shoes</span>
-          <span>Accessories</span>
-          <span>New Arrivals</span>
+          <Link className='link' to='/products/1'>Women</Link>
+          <Link className='link' to='/products/1'>Men</Link>
+          <Link className='link' to='/products/1'>Shoes</Link>
+          <Link className='link' to='/products/1'>Accesories</Link>
+          <Link className='link' to='/products/1'>New Arrivals</Link>
         </div>
         <div className="item">
           <h1>Links</h1>
-          <span>FAQ</span>
-          <span>Pages</span>
-          <span>Stores</span>
-          <span>Compare</span>
-          <span>Cookies</span>
+          <Link className='link' to='/products/1'>FAQ</Link>
+          <Link className='link' to='/products/1'>Pages</Link>
+          <Link className='link' to='/products/1'>Stores</Link>
+          <Link className='link' to='/products/1'>Compare</Link>
+          <Link className='link' to='/products/1'>Cookies</Link>
         </div>
         <div className="item">
           <h1>About</h1>
-          <span>lorem"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span>
+          <span>"Welcome to our online clothing store! Our offer includes a wide selection of fashionable and stylish clothes for women, men, and children in various sizes and colors. In our store, you will find everything you need to create a perfect wardrobe - from elegant dresses and shirts to comfortable pants and sporty hoodies. We also offer a wide range of accessories such as bags, shoes, and jewelry that will complement your look and add character to it."</span>
         </div>
         <div className="item">
           <h1>Contact</h1>
-          <span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</span>
+          <span className="info">Info</span>
+          <span>wearitinfo@gmail.com</span>
+          <span>Tel. No. +48 576 233 500</span>
+          <span className="info">Business</span>
+          <span>wearitbusiness@gmail.com</span>
+          <span>Tel. No. +48 576 233 600</span>
+          <span className="info">Complaints</span>
+          <span>wearitcomplaints@gmail.com</span>
+          <span>Tel. No. +48 576 233 700</span>
         </div>
       </div>
       <div className="bottom">
