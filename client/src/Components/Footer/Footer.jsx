@@ -28,14 +28,14 @@ const Footer = () => {
         <div className="item">
           <h1>Contact</h1>
           <span className="info">Info</span>
-          <span>wearitinfo@gmail.com</span>
-          <span>Tel. No. +48 576 233 500</span>
+          <span className="contact1">wearitinfo@gmail.com</span>
+          <span className="contact1">Tel. No. +48 576 233 500</span>
           <span className="info">Business</span>
-          <span>wearitbusiness@gmail.com</span>
-          <span>Tel. No. +48 576 233 600</span>
+          <span className="contact1">wearitbusiness@gmail.com</span>
+          <span className="contact1">Tel. No. +48 576 233 600</span>
           <span className="info">Complaints</span>
-          <span>wearitcomplaints@gmail.com</span>
-          <span>Tel. No. +48 576 233 700</span>
+          <span className="contact1">wearitcomplaints@gmail.com</span>
+          <span className="contact1">Tel. No. +48 576 233 700</span>
         </div>
       </div>
       <div className="bottom">

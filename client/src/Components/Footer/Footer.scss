@@ -1,6 +1,4 @@
 .footer {
-    outline-style: groove;
-    background-color: black;
     padding: 15px;
             //top right bottom left
 
@@ -21,26 +19,32 @@
             h1 {
                 font-size: 25px;
                 font-weight: 500;
-                color: grey;
+                color: black;
                 text-decoration: underline
                 
             }
 
             .info {
                 font-size: 20px;
-                color: red;
+                color: black;
+                transform: translateY(-12px);
             }
 
             .link {
-                color: white;
+                color: black;
                 cursor: pointer;
                     &:hover {
                         color: red;
                     }
             }
 
+            .contact1 {
+                color: black;
+                transform: translateY(-12px);
+            }
+
             span {
-                color: white;
+                color: black;
             }
         }
     }

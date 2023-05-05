@@ -15,24 +15,24 @@ const Contact = () => {
                     <button>JOIN US</button>
                 </div>
                 <div className="icons">
-                    <div className="facebookIcon">
+                    <div className="facebookIcon" onClick={() => window.open("https://www.facebook.com/")}>
                         <FacebookIcon />
                     </div>
-                    <div className="linkedInIcon">
+                    <div className="linkedInIcon" onClick={() => window.open("https://pl.linkedin.com/")}>
                         <LinkedInIcon />
                     </div>
-                    <div className="instagramIcon">
+                    <div className="instagramIcon" onClick={() => window.open("https://www.instagram.com/")}>
                         <InstagramIcon />
                     </div>
-                    <div className="twitterIcon">
+                    <div className="twitterIcon" onClick={() => window.open("https://twitter.com/?lang=pl")}>
                         <TwitterIcon />
                     </div>
-                    <div className="googleIcon">
+                    <div className="googleIcon" onClick={() => window.open("https://www.google.com")}>
                         <GoogleIcon />
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
