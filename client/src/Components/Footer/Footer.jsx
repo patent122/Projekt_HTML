@@ -15,11 +15,11 @@ const Footer = () => {
         </div>
         <div className="item">
           <h1>Links</h1>
-          <Link className='link' to='/products/1'>FAQ</Link>
+          <Link className='link' to='/FAQ/'>FAQ</Link>
           <Link className='link' to='/products/1'>Pages</Link>
-          <Link className='link' to='/products/1'>Stores</Link>
+          <Link className='link' to='https://www.google.pl/maps/place/Have+It+Wear+It/@54.4318788,18.5582121,17z/data=!3m1!4b1!4m6!3m5!1s0x46fd0abe7a417597:0x731406adfdef9d6b!8m2!3d54.4318788!4d18.560787!16s%2Fg%2F11h0vqp_lz'>Stores</Link>
           <Link className='link' to='/products/1'>Compare</Link>
-          <Link className='link' to='/products/1'>Cookies</Link>
+          <Link className='link' to='/Cookies/'>Cookies</Link>
         </div>
         <div className="item">
           <h1>About</h1>

@@ -9,10 +9,10 @@ const Contact = () => {
     return (
         <div className='contact'>
             <div className="wrapper">
-                <span>Stay in touch</span>
+                <span>Stay notified about every deal!</span>
                 <div className="mail">
                     <input type="text" placeholder='Enter your e-mail...' />
-                    <button>JOIN US</button>
+                    <button>Sign up</button>
                 </div>
                 <div className="icons">
                     <div className="facebookIcon" onClick={() => window.open("https://www.facebook.com/")}>

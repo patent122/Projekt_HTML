@@ -9,6 +9,9 @@ import Product from './pages/Home/Product/Product';
 import Products from './pages/Home/Products/Products';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
+import RegisterForm from './Components/Login/RegisterForm';
+import FAQ from './Components/FAQ/FAQ';
+import CookieFAQ from './Components/CookieFAQ/CookieFAQ';
 import './App.scss'
 
 const Layout = () => {
@@ -37,6 +40,18 @@ const router = createBrowserRouter([
       {
         path: '/product/:id',
         element: <Product />
+      },
+      {
+        path: '/login/:id',
+        element: <RegisterForm />
+      },
+      {
+        path: '/FAQ/',
+        element: <FAQ />
+      },
+      {
+        path: '/Cookies/',
+        element: <CookieFAQ />
       }
     ]
   },
