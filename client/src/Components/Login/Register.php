@@ -1,70 +1,42 @@
 <?php
-// Połączenie z bazą danych
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "store";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
 }
 
-// Sprawdzenie, czy tabela istnieje
-$tableName = "users";
-$tableExists = mysqli_query($conn, "SELECT 1 FROM $tableName");
+// Create table if it doesn't exist
+$sql = "CREATE TABLE IF NOT EXISTS users (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  firstName VARCHAR(30) NOT NULL,
+  lastName VARCHAR(30) NOT NULL,
+  email VARCHAR(50),
+  password VARCHAR(50)
+)";
 
-if (!$tableExists) {
-    // Tworzenie tabeli, jeśli nie istnieje
-    $sql = "CREATE TABLE $tableName (
-      id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-      first_name VARCHAR(30) NOT NULL,
-      last_name VARCHAR(30) NOT NULL,
-      email VARCHAR(50),
-      password VARCHAR(255) NOT NULL,
-      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-  )";
+mysqli_query($conn, $sql);
 
-    if ($conn->query($sql) === false) {
-        die("Error creating table: " . $conn->error);
-    }
-}
+// Insert data from form into table
+$firstName = $_POST["firstName"];
+$lastName = $_POST["lastName"];
+$email = $_POST["email"];
+$password = $_POST["password"];
 
-// Pobranie danych z formularza
-$data = json_decode(file_get_contents('php://input'), true);
+$sql = "INSERT INTO users (firstName, lastName, email, password)
+VALUES ('$firstName', '$lastName', '$email', '$password')";
 
-$firstName = $data['firstName'];
-$lastName = $data['lastName'];
-$email = $data['email'];
-$password = password_hash($data['password'], PASSWORD_DEFAULT);
-
-// Sprawdzenie, czy email już istnieje w bazie danych
-$sql = "SELECT * FROM $tableName WHERE email = '$email'";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    echo json_encode(['success' => false, 'message' => 'Email already exists']);
-    exit();
-}
-
-// Zapisanie danych do bazy danych
-$sql = "INSERT INTO $tableName (first_name, last_name, email, password)
-        VALUES ('$firstName', '$lastName', '$email', '$password')";
-
-if ($conn->query($sql) === true) {
-    echo json_encode(['success' => true]);
+if (mysqli_query($conn, $sql)) {
+  echo "New record created successfully";
 } else {
-    echo json_encode(['success' => false]);
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
 
-$conn->close();
-
-// Zapisanie danych do pliku
-  $file = fopen('data.txt', 'a');
-  fwrite($file, "$username, $email\n");
-  fclose($file);
-
-  echo 'Dane zostały przesłane i zapisane w pliku data.txt.';
-
+mysqli_close($conn);
 ?>
