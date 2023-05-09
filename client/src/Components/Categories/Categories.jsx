@@ -19,7 +19,7 @@ const Categories = () => {
                     </button></div>
             </div>
             <div className="col">
-                <div class="row">
+                <div className="row">
                     <img src="https://images.pexels.com/photos/9154696/pexels-photo-9154696.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="" />
                     <button>
                         <Link className='link' to='/products/1'>Man</Link>

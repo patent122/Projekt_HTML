@@ -1,6 +1,6 @@
 <?php
 
-header("Access-Control-Allow-Origin: http://localhost:5174");
+header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
@@ -28,20 +28,20 @@ $sql = "CREATE TABLE IF NOT EXISTS users (
 
 mysqli_query($conn, $sql);
 
-// Insert data from form into table
-$firstName = $_POST["firstName"];
-$lastName = $_POST["lastName"];
-$email = $_POST["email"];
-$password = $_POST["password"];
+    // Insert data from form into table
+    $firstName = $_POST["firstName"];
+    $lastName = $_POST["lastName"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-$sql = "INSERT INTO users (firstName, lastName, email, password)
+    $sql = "INSERT INTO users (firstName, lastName, email, password)
 VALUES ('$firstName', '$lastName', '$email', '$password')";
 
-if (mysqli_query($conn, $sql)) {
-  echo "New record created successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-}
+    if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
 
-mysqli_close($conn);
+    mysqli_close($conn);
 ?>

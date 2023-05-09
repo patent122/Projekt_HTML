@@ -13,6 +13,7 @@ const RegisterForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            console.log(formData);
             const response = await axios.post('http://localhost/Register.php', formData);
             console.log(response.data);
         } catch (error) {
