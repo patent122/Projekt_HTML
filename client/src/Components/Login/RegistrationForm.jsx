@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './RegistrationForm.scss'
 
 const RegisterForm = () => {
     const [formData, setFormData] = useState({
@@ -12,7 +13,7 @@ const RegisterForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('/Applications/XAMPP/xamppfiles/htdocs/Register.php', formData);
+            const response = await axios.post('http://localhost/Register.php', formData);
             console.log(response.data);
         } catch (error) {
             console.error(error);
