@@ -54,7 +54,7 @@ const Navbar = () => {
               <SearchIcon />
             </div>
             <div className="personOutlineIcon">
-              < Link className="personOutlineIcon" to='/login/1'><PersonOutlineIcon /></Link>
+              < Link className="personOutlineIcon" to='/login/'><PersonOutlineIcon /></Link>
             </div>
             <div className="favouriteBorderOutlineIcon">
               <FavoriteBorderOutlinedIcon />

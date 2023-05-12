@@ -9,7 +9,7 @@ import Product from './pages/Home/Product/Product';
 import Products from './pages/Home/Products/Products';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
-import Formularz from './Components/Login/RegistrationForm';
+import Form from './Components/Login/RegistrationForm';
 import FAQ from './Components/FAQ/FAQ';
 import CookieFAQ from './Components/CookieFAQ/CookieFAQ';
 import './App.scss'
@@ -42,8 +42,8 @@ const router = createBrowserRouter([
         element: <Product />
       },
       {
-        path: '/login/:id',
-        element: <Formularz />
+        path: '/login/',
+        element: <Form />
       },
       {
         path: '/FAQ/',

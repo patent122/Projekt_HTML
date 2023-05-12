@@ -1,41 +1,27 @@
-form {
+.form {
+  margin-top: 60px;
+  margin-bottom: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
 
   label {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+  }
 
-    input {
-      padding: 10px;
-      border: 2px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-      outline: none;
-      transition: border-color 0.2s ease-in-out;
-
-      &:focus {
-        border-color: blue;
-      }
-    }
+  input {
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 
   button {
-    padding: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: blue;
-    color: white;
     cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-
-    &:hover {
-      background-color: darkblue;
-    }
   }
 }

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 
-const Formularz = () => {
+const Form = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -11,6 +13,8 @@ const Formularz = () => {
         const formData = new URLSearchParams();
         formData.append('firstName', firstName);
         formData.append('lastName', lastName);
+        formData.append('email', email);
+        formData.append('password', password);
 
         // Wysyłanie danych przez POST do pliku PHP na serwerze
         fetch('http://localhost/Register.php', {
@@ -48,9 +52,27 @@ const Formularz = () => {
                 />
             </label>
             <br />
+            <label>
+                Email:
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+            </label>
+            <br />
+            <label>
+                Hasło:
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+            </label>
+            <br />
             <button type="submit">Wyślij</button>
         </form>
     );
 };
 
-export default Formularz;
+export default Form;
