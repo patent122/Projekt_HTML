@@ -9,7 +9,7 @@ import Product from './pages/Home/Product/Product';
 import Products from './pages/Home/Products/Products';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
-import RegisterForm from './Components/Login/RegistrationForm';
+import Formularz from './Components/Login/RegistrationForm';
 import FAQ from './Components/FAQ/FAQ';
 import CookieFAQ from './Components/CookieFAQ/CookieFAQ';
 import './App.scss'
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/login/:id',
-        element: <RegisterForm />
+        element: <Formularz />
       },
       {
         path: '/FAQ/',

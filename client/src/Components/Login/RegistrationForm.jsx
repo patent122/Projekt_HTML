@@ -1,74 +1,56 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import './RegistrationForm.scss'
 
-const RegisterForm = () => {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-    });
+const Formularz = () => {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        try {
-            console.log(formData);
-            const response = await axios.post('http://localhost/Register.php', formData);
-            console.log(response.data);
-        } catch (error) {
-            console.error(error);
-        }
-    };
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
+        // Przygotowanie danych w formacie 'application/x-www-form-urlencoded'
+        const formData = new URLSearchParams();
+        formData.append('firstName', firstName);
+        formData.append('lastName', lastName);
+
+        // Wysyłanie danych przez POST do pliku PHP na serwerze
+        fetch('http://localhost/Register.php', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(response => response.text())
+            .then(data => {
+                // Obsługa odpowiedzi z serwera
+                console.log('Odpowiedź z serwera:', data);
+            })
+            .catch(error => {
+                // Obsługa błędów
+                console.error('Błąd:', error);
+            });
     };
 
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                First name:
+                Imię:
                 <input
                     type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
                 />
             </label>
+            <br />
             <label>
-                Last name:
+                Nazwisko:
                 <input
                     type="text"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
                 />
             </label>
-            <label>
-                Email:
-                <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                />
-            </label>
-            <label>
-                Password:
-                <input
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                />
-            </label>
-            <button type="submit">Register</button>
+            <br />
+            <button type="submit">Wyślij</button>
         </form>
     );
 };
 
-export default RegisterForm;
+export default Formularz;

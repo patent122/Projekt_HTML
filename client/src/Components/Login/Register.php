@@ -1,47 +1,61 @@
 <?php
 
+header("Content-type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type");
+// Pobranie danych z formularza
+$firstName = $_POST['firstName'];
+$lastName = $_POST['lastName'];
 
+$fullName = $firstName . ' ' . $lastName;
+echo "Witaj, $fullName! Twoje dane zostały pomyślnie przesłane.";
+
+// Połączenie z bazą danych
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "store";
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
-if (!$conn) {
-  die("Connection failed: " . mysqli_connect_error());
+// Sprawdzenie połączenia
+if ($conn->connect_error) {
+    die("Błąd połączenia z bazą danych: " . $conn->connect_error);
 }
 
-// Create table if it doesn't exist
-$sql = "CREATE TABLE IF NOT EXISTS users (
-  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-  firstName VARCHAR(30) NOT NULL,
-  lastName VARCHAR(30) NOT NULL,
-  email VARCHAR(50),
-  password VARCHAR(50)
-)";
+// Sprawdzenie, czy tabela już istnieje
+$tableExists = false;
+$result = $conn->query("SHOW TABLES LIKE 'users'");
 
-mysqli_query($conn, $sql);
+if ($result->num_rows > 0) {
+    $tableExists = true;
+}
 
-    // Insert data from form into table
-    $firstName = $_POST["firstName"];
-    $lastName = $_POST["lastName"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+// Jeśli tabela nie istnieje, utwórz ją
+if (!$tableExists) {
+    $createTableQuery = "CREATE TABLE users (
+        id INT(11) AUTO_INCREMENT PRIMARY KEY,
+        first_name VARCHAR(50) NOT NULL,
+        last_name VARCHAR(50) NOT NULL
+    )";
 
-    $sql = "INSERT INTO users (firstName, lastName, email, password)
-VALUES ('$firstName', '$lastName', '$email', '$password')";
-
-    if (mysqli_query($conn, $sql)) {
-        echo "New record created successfully";
+    if ($conn->query($createTableQuery) === TRUE) {
+        echo "Tabela 'users' została pomyślnie utworzona.";
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        echo "Błąd podczas tworzenia tabeli 'users': " . $conn->error;
     }
+}
 
-    mysqli_close($conn);
+// Przygotowanie i wykonanie zapytania do wstawienia danych do tabeli
+$stmt = $conn->prepare("INSERT INTO users (first_name, last_name) VALUES (?, ?)");
+$stmt->bind_param("ss", $firstName, $lastName);
+
+if ($stmt->execute()) {
+    echo "Dane zostały pomyślnie zapisane do bazy danych.";
+} else {
+    echo "Wystąpił błąd podczas zapisywania danych: " . $stmt->error;
+}
+
+// Zamknięcie połączenia i zwolnienie zasobów
+$stmt->close();
+$conn->close();
 ?>
