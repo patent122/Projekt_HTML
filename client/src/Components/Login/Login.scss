@@ -1,0 +1,39 @@
+.loginHeader {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.formContainer {
+  margin-top: 20px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.submitButton {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #555;
+}

@@ -7,6 +7,8 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Link } from 'react-router-dom';
 import './Navbar.scss'
 import Cart from '../Cart/Cart';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Navbar = () => {
   const [openCart, setOpenCart] = useState(false)
@@ -41,10 +43,10 @@ const Navbar = () => {
             <Link className='link' to='/'>Homepage</Link>
           </div>
           <div className='item'>
-            <Link className='link' to='/'>About</Link>
+            <Link className='link' to='/About/'>About</Link>
           </div>
           <div className='item'>
-            <Link className='link' to='/'>Contact</Link>
+            <Link className='link' to='/Contact/'>Contact</Link>
           </div>
           <div className='item'>
             <Link className='link' to='/'>Stores</Link>
@@ -54,7 +56,10 @@ const Navbar = () => {
               <SearchIcon />
             </div>
             <div className="personOutlineIcon">
-              < Link className="personOutlineIcon" to='/login/'><PersonOutlineIcon /></Link>
+              <Link className='link' to='/Register/'><LoginIcon /></Link>
+            </div>
+            <div className="personOutlineIcon">
+              <Link className='link' to='/Login2/'><LogoutIcon /></Link>
             </div>
             <div className="favouriteBorderOutlineIcon">
               <FavoriteBorderOutlinedIcon />

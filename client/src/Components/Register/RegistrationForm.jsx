@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
+import './RegistrationForm.scss';
 
 const Form = () => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [formError, setFormError] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        // Sprawdzanie czy pola są wypełnione
+        if (firstName.trim() === '' || lastName.trim() === '' || email.trim() === '' || password.trim() === '') {
+            setFormError(true);
+            return;
+        }
 
         // Przygotowanie danych w formacie 'application/x-www-form-urlencoded'
         const formData = new URLSearchParams();
@@ -34,8 +42,9 @@ const Form = () => {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>
-                Imię:
+            {formError && <p>Please fill in all fields.</p>}
+            <label className="lab">
+                Name:
                 <input
                     type="text"
                     value={firstName}
@@ -43,8 +52,8 @@ const Form = () => {
                 />
             </label>
             <br />
-            <label>
-                Nazwisko:
+            <label className="lab">
+                Last name:
                 <input
                     type="text"
                     value={lastName}
@@ -52,7 +61,7 @@ const Form = () => {
                 />
             </label>
             <br />
-            <label>
+            <label className="lab">
                 Email:
                 <input
                     type="email"
@@ -61,8 +70,8 @@ const Form = () => {
                 />
             </label>
             <br />
-            <label>
-                Hasło:
+            <label className="lab">
+                Password:
                 <input
                     type="password"
                     value={password}
@@ -70,7 +79,7 @@ const Form = () => {
                 />
             </label>
             <br />
-            <button type="submit">Wyślij</button>
+            <button type="submit">Create an account</button>
         </form>
     );
 };
