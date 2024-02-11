@@ -13,6 +13,12 @@ function LoginForm() {
         formData.append('email', email);
         formData.append('password', password);
 
+        if (loggedIn) {
+            console.log("Pomyślnie zalogowano");
+        } else {
+            console.log("Niepoprawne dane");
+        }
+
         // Wywołanie metody fetch i przekazanie danych do pliku PHP
         fetch('http://localhost/Login2.php', {
             method: 'POST',
@@ -34,34 +40,27 @@ function LoginForm() {
 
     return (
         <div>
-            {loggedIn ? (
-                <div>
-                    <h2>Zalogowano pomyślnie!</h2>
-                    {/* Tutaj umieść kod dla wyświetlenia ikony lub innej informacji o zalogowaniu */}
-                </div>
-            ) : (
-                <form onSubmit={handleSubmit}>
-                    <label>
-                        Email:
-                        <input
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </label>
-                    <br />
-                    <label>
-                        Hasło:
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </label>
-                    <br />
-                    <button type="submit">Zaloguj</button>
-                </form>
-            )}
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Email:
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                </label>
+                <br />
+                <label>
+                    Hasło:
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </label>
+                <br />
+                <button type="submit">Zaloguj</button>
+            </form>
         </div>
     );
 }

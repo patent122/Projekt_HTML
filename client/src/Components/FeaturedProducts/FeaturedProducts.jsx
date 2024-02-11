@@ -1,56 +1,34 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
+import axios from "axios"
 import "./FeaturedProducts.scss"
 import Card from '../Card/Card'
 
+
 const FeaturedProducts = ({ type }) => {
 
-    const data = [
-        {
-            id: 1,
-            img: "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            img2: "https://images.pexels.com/photos/6015584/pexels-photo-6015584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: 'Shirts',
-            isNew: true,
-            oldPrice: 23,
-            price: 16,
-        },
-        {
-            id: 2,
-            img: "https://images.pexels.com/photos/914668/pexels-photo-914668.jpeg?auto=compress&cs=tinysrgb&w=1600",
-            img2: "https://images.pexels.com/photos/1006991/pexels-photo-1006991.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: 'Pants',
-            isNew: true,
-            oldPrice: 15,
-            price: 13,
-        },
-        {
-            id: 3,
-            img: "https://images.pexels.com/photos/1800053/pexels-photo-1800053.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            img2: "https://images.pexels.com/photos/2859181/pexels-photo-2859181.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: 'Shoes',
-            isNew: true,
-            oldPrice: 65,
-            price: 49,
-        },
-        {
-            id: 4,
-            img: "https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            img2: "https://images.pexels.com/photos/1007019/pexels-photo-1007019.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: 'Skirts',
-            isNew: true,
-            oldPrice: 30,
-            price: 16,
-        },
-        {
-            id: 5,
-            img: "https://images.pexels.com/photos/735276/pexels-photo-735276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            img2: "https://images.pexels.com/photos/9431876/pexels-photo-9431876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            title: 'Accessories',
-            isNew: true,
-            oldPrice: 140,
-            price: 129,
-        },
-    ]
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            // DLACZEGO NIE DZIAŁAJĄ ZMIENNIE ŚRODOWISKOWE? (.env)
+            try {
+                const res = await axios.get(
+                    process.env.REACT_APP_API_URL + "/products",
+                    {
+                        headers: {
+                            Authorization: "bearer " + "fef424ef8d66050d34312d7c6039d4ccf9560e7b1b4f88018b94b1d48d6aac1b003a10753e506ac914690b8d3b7f015f76cc202099668e05d35aba5a60252ad4e5898881e11727caf399f4c20971e6898b5e520fce7d7d45c3998aaaa72ff2228c33d6bf415e3de7620ef769e2d2be66d0365e11b5b86e3bb7fcaaa31091e2f8",
+                        },
+                    }
+                );
+                setData(res.data.data)
+            } catch (err) {
+                console.log(err)
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className='featuredProducts'>
             <div className="top">
